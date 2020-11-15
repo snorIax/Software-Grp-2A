@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2020 at 06:49 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Nov 15, 2020 at 04:24 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -153,6 +154,19 @@ CREATE TABLE `administrators` (
 
 INSERT INTO `administrators` (`Admin ID`, `Password`) VALUES
 (10000001, '0000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `remarks`
+--
+
+CREATE TABLE `remarks` (
+  `Student Id` int(8) NOT NULL,
+  `Date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Remarks` text NOT NULL,
+  `Lect Id` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -3219,6 +3233,13 @@ ALTER TABLE `administrators`
   ADD PRIMARY KEY (`Admin ID`);
 
 --
+-- Indexes for table `remarks`
+--
+ALTER TABLE `remarks`
+  ADD KEY `Student Id` (`Student Id`),
+  ADD KEY `Lect Id` (`Lect Id`);
+
+--
 -- Indexes for table `senior tutors`
 --
 ALTER TABLE `senior tutors`
@@ -3259,6 +3280,13 @@ ALTER TABLE `tempemails`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `remarks`
+--
+ALTER TABLE `remarks`
+  ADD CONSTRAINT `student_remarks` FOREIGN KEY (`Student Id`) REFERENCES `students` (`Student Id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tutor_remarks` FOREIGN KEY (`Lect Id`) REFERENCES `tutors` (`Lect ID`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `senior tutors`
