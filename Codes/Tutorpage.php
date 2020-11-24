@@ -8,6 +8,12 @@
 	$isseniortutor = $_POST['st'];
 	$alltuteeslist = $_POST['all'];
 	
+	// If haven't login, then change to login page
+	if(!(isset($userid)))
+	{
+		header("Location:Loginpage.php");
+	}
+	
 	// Query to look for the current school association
 	$schoolquery = mysqli_query($conn,'SELECT School FROM `tutors` WHERE `Lect ID` = '.$userid) or die('school error');
 	$school = mysqli_fetch_array($schoolquery, MYSQLI_ASSOC);
