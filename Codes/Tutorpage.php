@@ -74,8 +74,8 @@
 			padding:15 30 30;
 			background:white;
 			border-radius:5px;
-			width:20%;
-			height:23%;
+			width:19%;
+			height:25%;
 			position:relative;
 			transition:all 5s ease-in-out;
 		}
@@ -86,7 +86,7 @@
 			padding:15 30 30;
 			background:white;
 			border-radius:5px;
-			width:25%;
+			width:17%;
 			height:25%;
 			position:relative;
 			transition:all 5s ease-in-out;
@@ -96,6 +96,14 @@
 	</head>
 	<body>
 	
+		<form action="" method="post">
+			Search:
+			<input type="text" name="search" placeholder="Student ID or Name" onkeyup="showRows(this.value)">
+		</form>
+		
+		<br /><br />
+	
+	<div id="StudentsInfo">
 		<table border="1">
 			<tr >
 				<td align="center"><strong>ID</strong></td>
@@ -132,6 +140,7 @@
 						echo '<td align="center">
 								<form id="'.$rows['Student Id'].'" action="#changetutor" method="POST">
     						        <input type="hidden" name="studentid" value="'.$rows['Student Id'].'"/>
+									<input type="hidden" name="fname" value="'.$rows['Full Name'].'"/>
     						        <input type="hidden" name="tutorid" value="'.$rows['Tutor Id'].'"/>
         							
 									<input type="hidden" name="LectID" value="'.$userid.'" />
@@ -148,6 +157,9 @@
 				}
 			?>
 		</table>
+	</div>
+		
+		<br />
 		
 		<!-- form to pass around login info -->
 		<form action="" method="POST" id="logindata">
@@ -194,8 +206,10 @@
 			<tr>
 				<td colspan="2">
 					<form action="#confirmchange" method="POST">
+						Name:&nbsp;&nbsp;<strong><?php echo $_POST['fname']; ?></strong>
+						<br /><br />
 						<label>
-							Tutor:<br />
+							Tutor:&nbsp;&nbsp;
 						</label>
 						<input list="tutorid" name="tutoridfinal" placeholder="<?php echo $_POST['tutorid']; ?>" required="required">
 							<datalist id="tutorid">
@@ -267,6 +281,22 @@ function gototuteepage(id)
 {
 	document.getElementById("tuteeid").value = id;
     document.getElementById("tuteedata").submit();
+}
+</script>
+
+<script>
+function showRows(str) 
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+	{
+      if (this.readyState == 4 && this.status == 200) 
+	  {
+        document.getElementById("StudentsInfo").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "SearchedTable.php?search=" + str + "&LectID=" + <?php echo $userid; ?> + "&st=" + <?php echo $isseniortutor; ?> + "&all=" + <?php echo $alltuteeslist; ?>, true);
+    xmlhttp.send();
 }
 </script>
 
