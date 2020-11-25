@@ -1,6 +1,16 @@
 <?php
 	include('Connection.php');
 	include('Import.php');
+	
+	// Holds the admin
+	$userid = $_POST['LectID'];
+	
+	// If haven't login, then change to login page
+	if(!(isset($userid)))
+	{
+		header("Location:Loginpage.php");
+	}
+	
 ?>
 
 <!DOCTYPE html>

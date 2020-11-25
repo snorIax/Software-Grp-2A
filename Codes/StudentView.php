@@ -5,6 +5,12 @@ include_once('Connection.php'); //to connect the page to the database
 
 $userid = $_POST['studentID']; //storing the student ID that the student entered at the log in page in the studentid variable
 
+// If haven't login, then change to login page
+if(!(isset($userid)))
+{
+	header("Location:Loginpage.php");
+}
+
 // an sql query to get the tutor ID
 $getTutorID = mysqli_query($conn, 'SELECT tutors.`Lect ID` FROM tutors JOIN students ON students.`Tutor Id` = tutors.`Lect ID` WHERE students.`Student Id`= ' .$userid) or die('Error Fetching Tutor ID');
 $tutorID = mysqli_fetch_array($getTutorID,MYSQLI_ASSOC); //fetching the tutor ID received from the query
