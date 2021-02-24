@@ -8,6 +8,12 @@
 	$isseniortutor = $_POST['st'];
 	$alltuteeslist = $_POST['all'];
 	
+	// If haven't login, then change to login page
+	if(!(isset($userid)))
+	{
+		header("Location:Loginpage.php");
+	}
+	
 	$tuteeid = $_POST['tuteeid'];
 	
 	$new = $_POST['new'];
