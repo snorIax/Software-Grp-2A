@@ -11,7 +11,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Login Page</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="login.css">
 	</head>
 
 	<body>
@@ -40,6 +40,7 @@
 		</form>
 
 		<form method="post" action="Importpage.php" id="importdata">
+			<input type="hidden" name="AdminID" value="<?php echo $userid; ?>" />
 		</form>
 
 		<form method="post" action="StudentView.php" id="studentlogin">
