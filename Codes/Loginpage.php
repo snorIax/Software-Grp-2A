@@ -1,8 +1,9 @@
 <?php
 
+	session_start();
 	$st = -1;
+	
 	include('Login.php');
-
 ?>
 
 <!doctype html>
@@ -33,18 +34,13 @@
 
 		</section>
 
-		<form method="post" action="Tutorpage.php" id="logindata">
-			<input type="hidden" name="LectID" value="<?php echo $userid; ?>" />
-			<input type="hidden" id="st" name="st" value="" />
-			<input type="hidden" name="all" value="0" />
+		<form method="post" action="Tutorpage.php" id="tutorlogin">
 		</form>
 
 		<form method="post" action="Importpage.php" id="importdata">
-			<input type="hidden" name="AdminID" value="<?php echo $userid; ?>" />
 		</form>
 
 		<form method="post" action="StudentView.php" id="studentlogin">
-			<input type="hidden" name="studentID" value="<?php echo $userid; ?>" />
 		</form>
 
 
@@ -52,18 +48,29 @@
 
 	if($st != -1)
 	{
+		$_SESSION['userid'] = $_POST['id'];
 		if($st == 2)
 		{
+			$_SESSION['category'] = "Admin";
+			$_SESSION['whichschool'] = "all";
 			echo '<script>document.getElementById("importdata").submit();</script>';
 		}
-		elseif ($st==3) {
-				echo '<script>document.getElementById("studentlogin").submit();</script>';
+		elseif ($st == 3) 
+		{
+			$_SESSION['category'] = "Student";
+			echo '<script>document.getElementById("studentlogin").submit();</script>';
 		}
 		else
 		{
-			echo '<script>document.getElementById("st").value = '.$st.';</script>';
-			echo '<script>document.getElementById("logindata").submit();</script>';
+			$_SESSION['category'] = "Tutor";
+			$_SESSION['st'] = $st;
+			$_SESSION['all'] = 0;
+			echo '<script>document.getElementById("tutorlogin").submit();</script>';
 		}
+	}
+	else
+	{
+		session_unset();
 	}
 
 ?>

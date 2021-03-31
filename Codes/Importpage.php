@@ -1,15 +1,15 @@
 <?php
-	include('Connection.php');
-	include('Import.php');
+	session_start();
 	
-	// Holds the admin
-	$userid = $_POST['AdminID'];
+	include('Connection.php');
 	
 	// If haven't login, then change to login page
-	if(!(isset($userid)))
+	if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Admin"))
 	{
 		header("Location:Loginpage.php");
 	}
+	
+	include('Import.php');
 	
 ?>
 
@@ -27,9 +27,10 @@
 		<div class="sidebar">
 		
 			<nav>
-				<a href="#">Tutor <span>WebApp</span></a>
+				<a href="#">Nottingham <span>Tutor System</span></a>
 				<ul>
-					<li><a href="loginpage.php">Log Out</a></li>
+					<li><a href="Modulespage.php">Modules</a></li>
+					<li><a href="Loginpage.php">Log Out</a></li>
 				</ul>
 				
 			</nav>
@@ -58,13 +59,15 @@
 					</tr>
 				</thead>
 			</table>
+			<input type="hidden" name="AdminID" value="<?php echo $userid; ?>" />
 		</form>
 
 				<!-- End Table -->
 				</div>
 			</div>
-			<!-- End Panel -->
-			</div>
+		<!-- End Panel -->
+		</div>
+
 </html>
 
 
