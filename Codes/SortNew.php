@@ -21,7 +21,7 @@
 				$student = mysqli_fetch_array($students, MYSQLI_ASSOC);
 				if (empty($student['Year of Entry (UG)']))
 				{
-					$student['Year of Entry (UG)'] = "Null";
+					$student['Year of Entry (UG)'] = "0";
 				}
 				$studentstotutor = 'INSERT into students(`Student ID`,`Full Name`,`First Name`,`Last Name`,`Nationality`,`Gender`,`Academic Plan Code`,`Intake`,`Year of Entry (UG)`,`Current Year`,`Fnd 2-sem or 3-sem?`,`New`,`Level`,`Email Address`,`Registration Date`,`Registered`,`Remarks`,`Remarks 2`,`Tutor Id`) values('.$student['Student Id'].',"'.addslashes($student['Full Name']).'","'.addslashes($student['First Name']).'","'.addslashes($student['Last Name']).'","'.$student['Nationality'].'","'.$student['Gender'].'","'.$student['Academic Plan Code'].'","'.$student['Intake'].'",'.$student['Year of Entry (UG)'].','.$student['Year of Entry (UG)'].',"'.$student['Fnd 2-sem or 3-sem?'].'","Yes","'.$student['Level'].'","'.$student['Email Address'].'","'.$student['Registration Date'].'","'.$student['Registered'].'","","'.$student['Remarks 2'].'",'.$tutor['Lect ID'].')';
 				mysqli_query($conn, $studentstotutor) or die('students to tutor error 1   '.mysqli_error($conn).'   '.$studentstotutor);
@@ -35,7 +35,7 @@
 		{
 			if (empty($student['Year of Entry (UG)']))
 			{
-				$student['Year of Entry (UG)'] = "Null";
+				$student['Year of Entry (UG)'] = "0";
 			}
 			$studentstotutor = 'INSERT into students(`Student ID`,`Full Name`,`First Name`,`Last Name`,`Nationality`,`Gender`,`Academic Plan Code`,`Intake`,`Year of Entry (UG)`,`Current Year`,`Fnd 2-sem or 3-sem?`,`New`,`Level`,`Email Address`,`Registration Date`,`Registered`,`Remarks`,`Remarks 2`,`Tutor Id`) values('.$student['Student Id'].',"'.addslashes($student['Full Name']).'","'.addslashes($student['First Name']).'","'.addslashes($student['Last Name']).'","'.$student['Nationality'].'","'.$student['Gender'].'","'.$student['Academic Plan Code'].'","'.$student['Intake'].'",'.$student['Year of Entry (UG)'].','.$student['Year of Entry (UG)'].',"'.$student['Fnd 2-sem or 3-sem?'].'","Yes","'.$student['Level'].'","'.$student['Email Address'].'","'.$student['Registration Date'].'","'.$student['Registered'].'","","'.$student['Remarks 2'].'",'.$tutor['Lect ID'].')';
 			mysqli_query($conn, $studentstotutor) or die('students to tutor error 2   '.mysqli_error($conn).'   '.$studentstotutor);
