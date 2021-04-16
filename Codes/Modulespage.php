@@ -97,7 +97,7 @@
 		<div class="sidebar">
 		
 			<nav>
-				<a href="#">Nottingham <span>Tutor System</span></a>
+				<a href="#">Tutor <span>WebApp</span></a>
 				<ul>
 					<li><a href="Importpage.php">Import File</a></li>
 					<li><a href="Loginpage.php">Log Out</a></li>
@@ -114,15 +114,19 @@
 					Search: <input type="text" id="searchbar" name="search" placeholder="Code or Academic Plan" onkeyup="showRows(this.value)">
 				</form>
 			 </div>
-			<br>
-			<br>
+			<br />
+			<br />
+			<br />
 			
 			<!-- Form to go to go create new module page -->
-			<form action="Newmodulepage.php" method="POST">
-				<input type="submit" value="Add new module"/>
+			<form id="newmodule" action="Newmodulepage.php" method="POST">
+				<input type="hidden" id="modulecode" name="modulecode" value="" />
+				<input type="button" value="Add new module" onclick="gotomoduleeditpage(null)"/>
 			</form>
 			
-			<br>
+			
+			<br />
+			
 			<!-- Start Panel -->
 			<div class="panel-wrapper">
 				<div class="panel-head">
@@ -158,11 +162,11 @@
 				?>
 				<tr>
 				<?php
-					// main student's information
-					echo '<td>'.$rows['Code'].'</td>';
+					// main code's information
+					echo '<td><a onclick="gotomoduleeditpage(\''.$rows['Code'].'\')" style="cursor: pointer">'.$rows['Code'].'</a></td>';
 					echo '<td>'.$rows['Academic Plan'].'</td>';
 					
-					// if is list of all tutees, display tutors and changing option
+					// if is list of all school, display school as well
 					if($whichschool == "all")
 					{
 						echo '<td>'.$rows['School'].'</td>';
@@ -185,6 +189,21 @@ input.addEventListener("keydown", function(event)
     event.preventDefault();
   }
 });
+</script>
+
+<script>
+function gotomoduleeditpage(id)
+{
+	if(id == null)
+	{
+		document.getElementById("newmodule").submit();
+	}
+	else
+	{
+		document.getElementById("modulecode").value = id;
+		document.getElementById("newmodule").submit();
+	}
+}
 </script>
 
 <script>

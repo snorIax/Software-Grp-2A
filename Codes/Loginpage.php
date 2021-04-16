@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Login Page</title>
+		<title>NottsTutor Login</title>
 		<link rel="stylesheet" href="login.css">
 	</head>
 
@@ -21,13 +21,13 @@
 
 			<div class="container">
 				<div class="login-form">
-					<h1>WebApp Login</h1>
+					<h1>NottsTutor</h1>
 					<form method="post" action="" id="login">
 						<input type="text" name="id" id="id" placeholder="ID">
 						<input type="password" name="password" id="password" placeholder="Password">
 						<input type="submit" name="loginsubmit" value="Login">
 					</form>
-					<a href="#">Forget Password?</a>
+					<a href="forgotPassword.php">Forgot Password?</a>
 				</div>
 				<img src="unmclogo.png" alt="UNMC logo">
 			</div>

@@ -39,35 +39,55 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	
+		<link rel="stylesheet" href="default.css">
+		
 		<title>
 			New Remarks
 		</title>
 		
-		<style>
-		</style>
-		
 	</head>
 	
 	<body>
+	<!-- Start Menu -->
+	<div class="nav-btn">Menu</div>
+	<div class="container">
+		<div class="sidebar">
 
+			<nav>
+				<a href="#">NottsTutor <span>System</span></a>
+				<ul>
+					<li><a href="UserInformationTutors.php?LectID=<?php echo $userid ?>">Profile</a></li>
+					<li><a href="Search.php">Search</a></li>
+					<li><a href="Loginpage.php">Log Out</a></li>
+				</ul>
+
+			</nav>
+		</div>
+
+	<!-- End Menu -->
+	<center><div class="main-content">	
 		<form id="remarksform" action="" method="POST">
 			<input type="hidden" name="tuteeid" value="<?php echo $tuteeid; ?>" />
 			<input type="hidden" name="timestamp" value="<?php echo $date; ?>" />
-			
+		<div class="panel-wrapper">
+			<div class="panel-head">
 			<span><b>Remarks:</b></span>
 			<br />
-			<textarea name="remarks" rows="10" cols="100"><?php if($new == NULL){echo $remarks;} ?></textarea>
+			<textarea id="remarks" name="remarks" rows="10" cols="100"><?php if($new == NULL){echo $remarks;} ?></textarea>
 			<br />
 			<?php
 				if(isset($new))
 				{
 					echo '<input type="hidden" name="new" value="1" />';
-					echo '<input type="submit" value="Add remarks"/>';
+					echo '<input type="button" value="Back" onclick="goback()" />';
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;';
+					echo '<input type="button" value="Add remarks" onclick="toadd()" />';
 				}
 				else
 				{
 					echo '<input type="hidden" id="editordelete" name="" value="1" />';
+					echo '<input type="button" value="Back" onclick="goback()" />';
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 					echo '<input type="button" value="Edit remarks" onclick="toedit()" />';
 					echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 					echo '<input type="button" value="Delete remarks" onclick="todelete()" />';
@@ -79,7 +99,7 @@
 		<form id="alldata" action="Tuteepage.php" method="POST">
 			<input type="hidden" id="tuteeid" name="tuteeid" value="<?php echo $tuteeid; ?>" />
 		</form>
-		
+		</div>
 		<!--
 		<form id="delete" action="" method="POST">
 		</form>
@@ -93,10 +113,31 @@
 		?>
 		
 <script>
+function toadd()
+{
+	if (!(document.getElementById("remarks").value == ""))
+	{
+		document.getElementById("remarksform").submit();
+	}
+	else
+	{
+		window.alert("Error: Remarks cannot be empty");
+	}
+}
+</script>
+		
+<script>
 function toedit()
 {
-	document.getElementById("editordelete").name = "edit";
-	document.getElementById("remarksform").submit();
+	if (!(document.getElementById("remarks").value == ""))
+	{
+		document.getElementById("editordelete").name = "edit";
+		document.getElementById("remarksform").submit();
+	}
+	else
+	{
+		window.alert("Error: Remarks cannot be empty");
+	}
 }
 </script>
 
@@ -107,7 +148,16 @@ function todelete()
 	document.getElementById("remarksform").submit();
 }
 </script>
-	
+
+<script>
+function goback()
+{
+	document.getElementById("alldata").submit();
+}
+</script>
+			</div>
+		</div>
+	</div></center>
 	</body>
 	
 </html>
