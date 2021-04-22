@@ -122,7 +122,7 @@ To try out the importing function again as an administrator, follow these steps:
 2. Click on the 'operations' button present in the top bar.
 3. Scroll down to the bottom until you reach the 'Delete data or table' section.
 4. Click on the 'Empty the table (TRUNCATE) Documentation' option.
-5. Uncheck the 'Enable foreign key checks' checbox.
+5. Uncheck the 'Enable foreign key checks' checkbox.
 6. Press 'OK'. The students table should now be empty
 7. Import the CSV file 'existingStudents' into the students table by clicking on the 'Import' button in the top bar then the 'Choose File' button and choosing the CSV file.
 The table should now only include information of existing students and you can now use the Import function on NottsTutor again
