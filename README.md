@@ -106,11 +106,26 @@ Password: 1234
 
 Each of these users have different privileges that allow them access to different features of the NottsTutor system:
 
-- The administrator log onto the system first to upload the CSV file called 'student_data' (inside the CSV Files folder) which contains a list of all student information.
+- The administrator logs onto the system first to upload the CSV file called 'student_data' (inside the CSV Files folder) which contains a list of all new students' information.
 - The system will then import this list of students and automatically assign groups of students a tutor.
 - Tutors can then log onto the system to view their assigned tutees and their information.
 - In addition to viewing their assigned tutees, Senior Tutors can also view information about all tutees and their respective tutors under their school.
 - Students can log on to the system to view information about their assigned tutor and a list of other students in their year under the same tutor.
+
+**Note:**
+
+Once student information has been imported, an error will occur if the same data is to be uploaded again as this means the data is going to be a duplicate of the already existing data.  
+
+To try out the importing function again as an administrator, follow these steps:
+
+1. Click on the 'students' table in the database
+2. Click on the 'operations' button present in the top bar.
+3. Scroll down to the bottom until you reach the 'Delete data or table' section.
+4. Click on the 'Empty the table (TRUNCATE) Documentation' option.
+5. Uncheck the 'Enable foreign key checks' checbox.
+6. Press 'OK'. The students table should now be empty
+7. Import the CSV file 'existingStudents' into the students table by clicking on the 'Import' button in the top bar then the 'Choose File' button and choosing the CSV file.
+The table should now only include information of existing students and you can now use the Import function on NottsTutor again
 
 ### NottsTutor Website
 
