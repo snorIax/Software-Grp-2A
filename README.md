@@ -12,10 +12,10 @@ The Software-Grp-2A folder should contain the following folders and files:
 - Codes folder: the NottsTutor code
 - csv_db .sql: the database used for NottsTutor
 - README.txt/README.md: README file on how to run the code
-- CSV Files folder: a folder containing the CSV files of student information
-    The following are the files inside the CSV Files folder:
-      - student_data.csv: a CSV file containing information about all new intake students
-      - existingStudents.csv: a CSV file containing information about already existing students at the University of Nottingham Malaysia
+- CSV Files folder: a folder containing the CSV files of student information  
+    The following are the files inside the CSV Files folder:  
+      - student_data.csv: a CSV file containing information about all new intake students  
+      - existingStudents.csv: a CSV file containing information about already existing students at the University of Nottingham Malaysia  
 
 
 ### XAMPP and Localhost
