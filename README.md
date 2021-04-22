@@ -83,22 +83,22 @@ The following are a list of IDs and passwords to log on to the NottsTutor system
 
 1. Administrator
 
-ID: 10000001 /
+ID: 10000001  
 Password: 0000
 
 2. Regular Tutor
 
-ID: 50000033 /
+ID: 50000033  
 Password: 1234
 
 3. Senior Tutor
 
-ID: 50000031 /
+ID: 50000031  
 Password: 1234
 
 4. Student
 
-ID: 20050927 /
+ID: 20050927  
 Password: 1234
 
 Each of these users have different privileges that allow them access to different features of the NottsTutor system: 
@@ -111,9 +111,9 @@ Each of these users have different privileges that allow them access to differen
 
 ### NottsTutor Website
 
-Another way of seein the functionality of the code is to access the NottsTutor system online via its website./
-NottsTutor has been deployed online and can be accessed and viewed via http://hfyer1.jupiter.nottingham.edu.my/Loginpage.php /
+Another way of seein the functionality of the code is to access the NottsTutor system online via its website.  
+NottsTutor has been deployed online and can be accessed and viewed via http://hfyer1.jupiter.nottingham.edu.my/Loginpage.php  
 The fuctionality of the NottsTutor system can be viewed through each page of the website. 
 
-**Refer to the User Manual in the final report for a detailed explanation of how to use the system's different features.** /
+**Refer to the User Manual in the final report for a detailed explanation of how to use the system's different features.**  
 **The final report also provides details of all other functions provided by NottsTutor.**
