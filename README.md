@@ -73,7 +73,7 @@ Inside the Codes folder, there should be the following files:
 
 ![codes folder](https://i.imgur.com/XEpqMHk.jpg) 
 
-2. Type in http://localhost/SE-2A-Project-Code/Codes/Loginpage.php in your browser to access the Login screen of NottsTutor.
+2. Type in http://localhost/Software-Grp-2A/Codes/Loginpage.php in your browser to access the Login screen of NottsTutor.
 
 ![login page](https://i.imgur.com/tqWSNGD.png)
 
