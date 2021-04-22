@@ -32,7 +32,7 @@ https://www.wikihow.com/Install-XAMPP-for-Windows
 
 4. Click on phpMyAdmin
 
-![phpMyAdmin](https://i.imgur.com/hH2ANWs.jpg)
+![phpMyAdmin](https://i.imgur.com/OM2mY80.jpg)
 
 This should open the phpyMyAdmin dashboard.
 
